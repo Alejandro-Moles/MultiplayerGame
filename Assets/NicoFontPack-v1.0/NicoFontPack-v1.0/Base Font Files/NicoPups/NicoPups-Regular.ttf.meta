@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bc198900363af18499c2972868044e12
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - NicoPups
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c4de11dca8070d14cae437ef6050485a, type: 3}
+  - {fileID: 12800000, guid: 99c6d579ebcd7034ea9fc07ebb33247c, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
