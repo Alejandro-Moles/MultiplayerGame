@@ -32,6 +32,8 @@ public class PlayerItem : MonoBehaviourPunCallbacks
     private void Start()
     {
         backgroundImage = GetComponent<Image>();
+        playerProperties["playerAvatar"] = 0;
+        PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
     #endregion
 

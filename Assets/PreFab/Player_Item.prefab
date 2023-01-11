@@ -505,7 +505,7 @@ MonoBehaviour:
   avatars:
   - {fileID: 21300024, guid: 6fa7150d6e84a0f4d9122fda376c5e15, type: 3}
   - {fileID: 21300028, guid: d13f53c1f0f786e4c970a9351a37b322, type: 3}
-  - {fileID: 21300020, guid: 77d511b2a5e9c79409263d1cc7828e7a, type: 3}
+  - {fileID: 21300024, guid: 2b6573e3eddea0943beabd1f7096a3a9, type: 3}
 --- !u!1 &8606966996938363136
 GameObject:
   m_ObjectHideFlags: 0
