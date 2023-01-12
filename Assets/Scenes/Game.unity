@@ -847,8 +847,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPreFabs:
   - {fileID: 7824041873356202846, guid: d5cd8f20b224cb24baa8724b62934ad7, type: 3}
-  - {fileID: 1614904970050207348, guid: 8bf81846b629e1d4c97fcd6d0df5635e, type: 3}
-  - {fileID: 6209634319832039076, guid: 2a510b14e3b250f4898bf065fe60e113, type: 3}
+  - {fileID: 1614904970050207348, guid: 8bd9dd84b07a6f44a8f5c2ae2606c0bc, type: 3}
+  - {fileID: 6209634319832039076, guid: 2c6269f10e2d240449542816c927f38f, type: 3}
   spawnPoints:
   - {fileID: 1372674431}
   - {fileID: 1030155261}
