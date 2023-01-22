@@ -16,9 +16,12 @@ GameObject:
   - component: {fileID: 8717224838760172287}
   - component: {fileID: -3989587183982666970}
   - component: {fileID: -4821623218290132310}
-  m_Layer: 0
+  - component: {fileID: 5661801034007090456}
+  - component: {fileID: 5172700896462650428}
+  - component: {fileID: 3574508342244746290}
+  m_Layer: 7
   m_Name: Hunter
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +82,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300028, guid: d13f53c1f0f786e4c970a9351a37b322, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -119,10 +122,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 100
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -148,6 +151,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: -4821623218290132310}
+  - {fileID: 5172700896462650428}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -176,8 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e3cf241fc2c0b2498e893bfb3629e68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerSpeed: 400
-  smooth: 0.1
+  playerSpeed: 5
+  direction: {x: 0, y: 0}
 --- !u!114 &-4821623218290132310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,7 +197,7 @@ MonoBehaviour:
   m_PositionModel:
     SynchronizeEnabled: 1
     TeleportEnabled: 1
-    TeleportIfDistanceGreaterThan: 3
+    TeleportIfDistanceGreaterThan: 7
     InterpolateOption: 2
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 1
@@ -211,6 +215,62 @@ MonoBehaviour:
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!95 &5661801034007090456
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614904970050207348}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d5d0f6425df77ed4a8c01fa4d62ca05d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5172700896462650428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614904970050207348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 3
+    SynchronizeType: 1
+    Name: Horizontal
+  - Type: 3
+    SynchronizeType: 1
+    Name: Vertical
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+--- !u!114 &3574508342244746290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1614904970050207348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab71f1287f892c438b8189893e8d699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6403158861200839952
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,7 +282,7 @@ GameObject:
   - component: {fileID: 5576579335914404894}
   - component: {fileID: 1598411320963340448}
   - component: {fileID: 8944176615775919208}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: NickName
   m_TagString: Untagged
   m_Icon: {fileID: 0}

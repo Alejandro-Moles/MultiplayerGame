@@ -8,21 +8,18 @@ public class Player_Move : MonoBehaviour
     #region Variables
     private Rigidbody2D rb;
     private PhotonView view;
+    private Animator animator;
 
     [Header("Movimiento del jugador")]
-    //esta es la variable que se usará para determinar el movimiento del personaje en el eje horizontal
+    //estas es la variable que se usará para determinar el movimiento del personaje en el eje horizontal y vertical
     private float Horizontal = 0f;
-
-    //esta es la variable que se usara para darle una velocida a nuestro personaje
-    [SerializeField] private float playerSpeed;
-
-    //esta variable nos indicará que tanto queremos que tenga el suavizado de movimiento de nuestro personaje
-     [Range(0,1)][SerializeField] private float smooth;
+    private float Vertical = 0f;
 
     //esta variable se usará para comprobar si el jugador esta mirando a la derecha o a la izquierda
     private bool LookRigth = true;
 
-    private Vector3 speed = Vector3.zero;
+    [SerializeField] private float playerSpeed;
+    [SerializeField] private Vector2 direction;
     #endregion
 
     #region Metodos de Unity
@@ -30,31 +27,45 @@ public class Player_Move : MonoBehaviour
     {
         //obtenemos el rigidBody
         rb = GetComponent<Rigidbody2D>();
-
+        //obtnemos el photon view
         view = GetComponent<PhotonView>();
+        //obtenemos el animator
+        animator = GetComponent<Animator>(); 
     }
 
     
     void Update()
     {
-        Horizontal = Input.GetAxisRaw("Horizontal") * playerSpeed;
+        if (view.IsMine)
+        {
+            //comprobamos si esta pulsando la tecla de movimiento
+            Horizontal = Input.GetAxisRaw("Horizontal");
+            Vertical = Input.GetAxisRaw("Vertical");
+
+            animator.SetInteger("Horizontal", (int)Horizontal);
+            animator.SetInteger("Vertical", (int)Vertical);
+
+            direction = new Vector2(Horizontal, Vertical);
+        }
     }
 
     private void FixedUpdate()
     {
+        //comprobamos si el componente de photon view es el nuestro, de ser asi llamamos a la funcion de moverse
         if (view.IsMine)
         {
-            Movement(Horizontal * Time.fixedDeltaTime);
+            Movement(Horizontal);
         }
        
     }
     #endregion
 
+    //funcion que hace que nuestro personaje se mueva
     private void Movement(float move)
     {
-        Vector3 targetSpeed = new Vector2(move, rb.velocity.y);
-        rb.velocity = Vector3.SmoothDamp(rb.velocity, targetSpeed, ref speed, smooth);
+        rb.MovePosition(rb.position + direction * playerSpeed * Time.fixedDeltaTime);
 
+        //comprobamos si esta mirando hacia la derecha o la izquierda y lo giramos para el lado correspondiente
         if (move > 0 && !LookRigth)
         {
             TurnUp();
@@ -64,6 +75,7 @@ public class Player_Move : MonoBehaviour
         }
     }
 
+    //funcion que modifica la escala del personaje en la x para que el personaje gire hacia donde esta mirando
     private void TurnUp()
     {
         LookRigth = !LookRigth;
@@ -71,4 +83,5 @@ public class Player_Move : MonoBehaviour
         scale.x *= -1;
         transform.localScale = scale;
     }
+
 }
