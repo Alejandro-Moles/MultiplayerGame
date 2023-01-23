@@ -57,14 +57,12 @@ public class CreateJoinRoom : MonoBehaviourPunCallbacks
     //funcoin de photon que se llama cuando un jugador entra a la sala
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
-        Debug.Log("Entro");
         lobbyManager.UpdatePlayerList();
     }
 
     //funcion de photon que se llama cuando un jugador sale de la sala
     public override void OnPlayerLeftRoom(Player otherPlayer)
     {
-        Debug.Log("Me voy");
         lobbyManager.UpdatePlayerList();
     }
 
