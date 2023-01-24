@@ -5,6 +5,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine.SceneManagement;
+using Photon.Pun.UtilityScripts;
 
 public class TimeController : MonoBehaviour
 {
@@ -18,7 +19,6 @@ public class TimeController : MonoBehaviour
 
     //esta variable es una version de una Hash Table pero adaptada para Photon, y se utilizará para la imagen del personaje que quiera utilizar el jugador
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
-
 
     private void Start()
     {
@@ -47,10 +47,10 @@ public class TimeController : MonoBehaviour
            time_txt.text = time.ToString();
         }
 
-        //indicamos las propiedades de photon
+        //indicamos las propiedades de photon y le añadimos la puntuacion del jugador
         playerProperties["playerPoint"] = player_Points.GetSetNumberOfCoins;
-
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
+       
 
         //nos dirigimos a la pantalla de final del juego
         SceneManager.LoadScene("FinalScene");
