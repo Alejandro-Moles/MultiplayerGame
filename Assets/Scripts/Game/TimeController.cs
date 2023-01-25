@@ -9,8 +9,10 @@ using Photon.Pun.UtilityScripts;
 
 public class TimeController : MonoBehaviour
 {
+    #region Variables
     //esta variable es la que guarda el texto del canvas donde estará el contador
     [SerializeField] private TextMeshProUGUI time_txt;
+    [SerializeField] private TextMeshProUGUI poin_txt;
 
     private int time;
 
@@ -19,7 +21,9 @@ public class TimeController : MonoBehaviour
 
     //esta variable es una version de una Hash Table pero adaptada para Photon, y se utilizará para la imagen del personaje que quiera utilizar el jugador
     ExitGames.Client.Photon.Hashtable playerProperties = new ExitGames.Client.Photon.Hashtable();
+    #endregion
 
+    #region Metodos Unity
     private void Start()
     {
         //ponemos el tiempo en 30 segundos
@@ -36,7 +40,15 @@ public class TimeController : MonoBehaviour
         PhotonNetwork.SetPlayerCustomProperties(playerProperties);
     }
 
+    private void Update()
+    {
+        //muestro en la pantallde juego la puntuacion que tiene el jugador local
+        poin_txt.text = "Points: " +player_Points.GetSetNumberOfCoins.ToString();
+    }
+    #endregion
 
+
+    #region Metodos Propios
     private IEnumerator TimeStart() 
     {
         //mientras el tiempo sea menor de 30 y mayor a 0 se repetira este bucle
@@ -55,7 +67,7 @@ public class TimeController : MonoBehaviour
         //nos dirigimos a la pantalla de final del juego
         SceneManager.LoadScene("FinalScene");
     }
-
+    #endregion
 
 
 }
